@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+################################### part 1 ###################################
+
 group1 = []
 group2 = []
 
@@ -19,3 +21,10 @@ for i in range(0,len(group1)):
     #print(i, group1[i], group2[i], dist, total_dist)
 
 print("Total distance between the two lists:", total_dist)
+
+################################### part 2 ###################################
+
+similarity = [loc_id * group2.count(loc_id) for loc_id in group1]
+total_sim = sum(similarity)
+
+print("Similarity score of the two lists:", total_sim)

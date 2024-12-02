@@ -20,9 +20,6 @@ def check_report(report):
                 safe = False 
                 break
             direction = "decreasing"
-        elif level == report[i-1]:
-            safe = False
-            break
 
         safe = True
     

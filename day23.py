@@ -1,5 +1,7 @@
 #!/usr/bin/python3 
 
+################################### part 1 ###################################
+
 with open("input.txt") as file: 
     connections = [line.strip("\n").split("-") for line in file]
 
@@ -24,3 +26,17 @@ for i, connection in enumerate(connections):
 
 print('There are', len(set(triangles)), 
       'sets of thee connected computers where at least one starts with "t".')
+
+################################### part 2 ###################################
+
+parties = []
+
+for computer in conn_dict:
+    party = [computer]
+    for comp in conn_dict[computer]:
+        if all(c in conn_dict[comp] for c in party):
+            party.append(comp)
+    parties.append(party)
+
+print('The password for the LAN party is:',
+      ",".join(sorted(max(parties, key=len))))
